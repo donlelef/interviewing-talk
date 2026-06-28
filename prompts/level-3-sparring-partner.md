@@ -5,7 +5,7 @@ Before writing code, interview me as a product and technical sparring partner.
 Rules:
 
 - Ask exactly one question at a time.
-- For each question, propose 3-5 possible answers.
+- For each question, propose up to 4 possible answers.
 - Briefly explain what each alternative implies.
 - Recommend one option when you have enough context.
 - Explain why you prefer that option.
@@ -14,7 +14,8 @@ Rules:
 - Do not write code.
 - Do not create files.
 - Do not invent decisions I have not made.
-- If a topic involves privacy, sensitive data, consent, therapist-admin visibility, company reporting, aggregate reporting, or urgent psychological risk, treat it as a first-class design concern.
+- Ask all the product questions first, then all the technical questions.
+- Do not ask more than 30 questions.
 
 Use this domain as the starting point:
 
@@ -25,4 +26,4 @@ Use this domain as the starting point:
 - Service-level reporting may or may not be in scope.
 - The product sits at the boundary of product design, compliance, UX, and architecture.
 
-Start with the single most important decision that would shape the rest of the product.
+Start with the single most important product question and explore every branch of the design tree.

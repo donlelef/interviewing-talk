@@ -5,11 +5,12 @@ Before writing code, interview me to clarify the product.
 Rules:
 
 - Ask exactly one question at a time.
-- For each question, propose 4 possible answers.
+- For each question, propose up to 4 possible answers.
 - Briefly explain what each alternative implies.
 - Wait for my answer before asking the next question.
 - Do not write code.
 - Do not create files.
+
 Use this domain as the starting point:
 
 - Employees can request psychological support.
@@ -19,4 +20,4 @@ Use this domain as the starting point:
 - Service-level reporting may or may not be in scope.
 - The product must handle privacy-sensitive information carefully.
 
-Start with the single most important product question.
+Start with the single most important product question and explore every branch of the design tree.
