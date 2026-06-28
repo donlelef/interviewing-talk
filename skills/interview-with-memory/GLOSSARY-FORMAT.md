@@ -42,45 +42,35 @@ Only domain concepts belong here.
 ```md
 # Glossary
 
-Shared domain language for an employee psychological support desk product.
+Shared domain language for this product.
 
-## People And Roles
+## Core Concepts
 
-**Employee**:
-A person working for a company who can request psychological support through the product.
-_Avoid_: Patient, user, worker
+**Primary Actor**:
+The person or system that starts the main workflow.
+_Avoid_: User, owner, requester
 
-**HR Admin**:
-A company-side user who manages access and views permitted operational or aggregate information.
-_Avoid_: Employer, manager, supervisor
+**Work Item**:
+The main unit of work tracked by the product from creation to completion.
+_Avoid_: Task, ticket, record
 
-**Therapist**:
-A qualified professional who provides psychological support sessions.
-_Avoid_: Coach, operator, consultant
+**Workflow State**:
+The current meaningful stage of a work item from the product user's point of view.
+_Avoid_: Status, flag, step
 
-**Case Manager**:
-A role that coordinates support pathways, triage, or escalation when the product includes that workflow.
-_Avoid_: Admin, therapist assistant
+## Roles
 
-## Support Concepts
+**Reviewer**:
+A supporting role that evaluates or approves a work item before it can proceed.
+_Avoid_: Manager, operator, approver
 
-**Psychological Support Desk**:
-The product-supported service through which employees request and receive access to psychological support.
-_Avoid_: Helpdesk, clinic, therapy app
+**Workspace Member**:
+A person who belongs to the same collaborative area of the product.
+_Avoid_: Account user, teammate, seat
 
-**Session**:
-A scheduled meeting between an employee and a therapist.
-_Avoid_: Appointment, ticket, consultation
-
-**Consent**:
-The employee's explicit agreement for a specific use of their personal or support-related information.
-_Avoid_: Acceptance, approval
+## Measurements
 
 **Aggregate Metric**:
-A measurement reported across a group large enough to avoid identifying a specific employee.
-_Avoid_: HR insight, employee metric, usage detail
-
-**Urgent Case**:
-A support request or situation that may require immediate attention or escalation outside the normal booking flow.
-_Avoid_: Emergency, incident, critical ticket
+A measurement reported across a group or time period rather than a single identifiable item.
+_Avoid_: Insight, detail, individual metric
 ```

@@ -10,15 +10,15 @@ Rules:
 - Wait for my answer before asking the next question.
 - Do not write code.
 - Do not create files.
-- If a topic involves privacy, sensitive data, consent, HR visibility, or urgent psychological risk, make that explicit.
+- If a topic involves privacy, sensitive data, consent, therapist-admin visibility, company reporting, or urgent psychological risk, make that explicit.
 
 Use this domain as the starting point:
 
 - Employees can request psychological support.
-- Companies may want aggregate reporting.
-- HR or company admins may need operational visibility.
-- Therapists may need appointment and case context.
-- A case manager may or may not exist.
+- Admins are therapists.
+- Therapist-admins may need appointment and session context.
+- The sponsoring company is not a product user unless explicitly added later.
+- Service-level reporting may or may not be in scope.
 - The product must handle privacy-sensitive information carefully.
 
 Start with the single most important product question.

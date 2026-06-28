@@ -62,40 +62,38 @@ What value the product provides, and to whom.
 ```md
 # Product Memory
 
-The product helps companies offer employees access to a confidential psychological support desk while preserving employee trust.
+This product helps a clearly defined user group accomplish a specific outcome in a repeatable workflow.
 
 ## Users
 
-- **Employee**: Requests support, books sessions, manages consent, and expects privacy from the employer.
-- **HR admin**: Monitors adoption and operational availability without seeing individual clinical details.
-- **Therapist**: Manages appointments and session context needed to provide care.
-- **Case manager**: Coordinates support pathways when the product includes triage or escalation.
+- **Primary user**: The main user whose problem the product solves.
+- **Secondary user**: A supporting user who configures, reviews, approves, or manages part of the workflow.
 
 ## Value Proposition
 
-Employees get a clear, confidential path to psychological support. Companies get enough aggregate insight to understand adoption without turning the product into employee surveillance.
+The product reduces a specific pain, creates a specific benefit, or makes a recurring workflow easier to complete.
 
 ## Usage Modes
 
-- Employees can self-initiate support.
-- HR admins can view aggregate usage and operational health.
-- Therapists can manage their own appointment workflow.
+- A user can start the main workflow from an empty state.
+- A returning user can resume or review previous work.
+- A supporting user can manage the parts of the workflow they are responsible for.
 
 ## Functional Choices
 
-- HR visibility is limited to aggregate metrics and operational status by default.
-- Individual session content is never shown to HR.
-- Urgent or high-risk cases require a clarified escalation policy before implementation.
+- The first version supports the core workflow only.
+- Advanced reporting is out of scope until the main workflow is validated.
+- User roles should not be added unless their product responsibility is clear.
 
 ## Product Constraints
 
-- Employee trust is a core product requirement.
-- The product must not imply that HR has access to therapy content.
-- Aggregate metrics should avoid exposing individuals in small groups.
+- The product should optimize for clarity over configurability in the first version.
+- Sensitive or irreversible user actions require explicit confirmation.
+- Product decisions should be understandable without reading technical architecture notes.
 
 ## Open Questions
 
-- Does the product include a case manager role in the first version?
-- What minimum group size is required before aggregate metrics are shown?
-- Is emergency escalation in scope, or does the product only provide routing to external resources?
+- Which user role owns the main workflow?
+- What is intentionally out of scope for the first version?
+- What user action would be costly or risky to reverse?
 ```

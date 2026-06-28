@@ -14,15 +14,15 @@ Rules:
 - Do not write code.
 - Do not create files.
 - Do not invent decisions I have not made.
-- If a topic involves privacy, sensitive data, consent, HR visibility, aggregate reporting, or urgent psychological risk, treat it as a first-class design concern.
+- If a topic involves privacy, sensitive data, consent, therapist-admin visibility, company reporting, aggregate reporting, or urgent psychological risk, treat it as a first-class design concern.
 
 Use this domain as the starting point:
 
 - Employees can request psychological support.
-- Companies may want aggregate reporting.
-- HR or company admins may need operational visibility.
-- Therapists may need appointment and case context.
-- A case manager may or may not exist.
+- Admins are therapists.
+- Therapist-admins may need appointment and session context.
+- The sponsoring company is not a product user unless explicitly added later.
+- Service-level reporting may or may not be in scope.
 - The product sits at the boundary of product design, compliance, UX, and architecture.
 
 Start with the single most important decision that would shape the rest of the product.

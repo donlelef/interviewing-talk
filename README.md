@@ -19,12 +19,12 @@ This repo argues for a different workflow:
 
 The demo uses a fictional product: an app for companies that offer an **employee psychological support desk**.
 
-This is intentionally more ambiguous than a todo app. It raises questions that cut across product, compliance, UX, and architecture:
+This is intentionally more ambiguous than a todo app. Even with only two product roles, it raises questions that cut across product, compliance, UX, and architecture:
 
-- What can HR see about individual employees?
-- Which metrics can be shown safely in aggregate?
+- What can therapist-admins see before, during, and after an employee session?
+- Should the sponsoring company receive any reporting, or is reporting out of scope?
 - How should employee consent be handled?
-- Who are the users: employee, HR/admin, therapist, case manager?
+- Who are the users: employee and admin, where admins are therapists?
 - What happens when an employee reports an urgent or high-risk situation?
 - Which decisions are product choices, and which are technical architecture choices?
 

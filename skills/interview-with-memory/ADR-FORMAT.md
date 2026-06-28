@@ -68,7 +68,7 @@ Why is this the best choice given the current context?
 ## Example
 
 ```md
-# ADR 0001: Enforce HR Visibility Boundaries Server-Side
+# ADR 0001: Enforce Authorization Boundaries Server-Side
 
 ## Status
 
@@ -76,36 +76,36 @@ Proposed
 
 ## Context
 
-The product limits HR visibility to aggregate metrics and operational status. The system needs a technical boundary that prevents HR-facing surfaces from accessing individual support details.
+The product has multiple permission levels. The system needs a technical boundary that prevents clients from reading or changing data outside the current user's permitted scope.
 
 ## Options Considered
 
 1. Enforce boundaries only in the frontend
    - Pros: Simple to prototype.
-   - Cons: Insufficient for sensitive data; backend APIs could still expose individual details.
+   - Cons: Insufficient for protected data; backend APIs could still expose or mutate records too broadly.
 2. Enforce boundaries in backend authorization and data access
-   - Pros: Stronger control; safer default for sensitive data.
+   - Pros: Stronger control; safer default for protected workflows.
    - Cons: Requires explicit authorization rules and test coverage.
-3. Store HR reporting data in a separate reporting model
-   - Pros: Reduces accidental leakage from operational records.
-   - Cons: Adds data synchronization and consistency concerns.
+3. Use database-level access policies
+   - Pros: Adds another enforcement layer close to the data.
+   - Cons: Can make application behavior harder to reason about if not documented carefully.
 
 ## Decision
 
-Use backend authorization and data-access boundaries as the minimum requirement. Consider a separate reporting model if aggregate reporting becomes complex.
+Use backend authorization and data-access boundaries as the minimum requirement. Consider database-level access policies if the permission model becomes complex enough to justify another enforcement layer.
 
 ## Rationale
 
-Frontend-only controls are not appropriate for sensitive psychological support data. The backend must prevent HR users from retrieving individual support details even if a UI or client bug occurs.
+Frontend-only controls are not appropriate for protected workflows. The backend must enforce permissions even when a client is buggy, stale, or malicious.
 
 ## Consequences
 
-- Future HR-facing features must use authorization paths designed for HR visibility.
-- Tests should cover attempts to access individual employee support details as an HR admin.
-- Reporting features may later need a separate read model for aggregate metrics.
+- Future features must use the shared authorization path.
+- Tests should cover attempts to read or mutate data outside the current user's permitted scope.
+- If database-level policies are added later, this ADR should be superseded or expanded.
 
 ## Follow-Up Questions
 
-- What minimum group size is required before an aggregate metric can be shown?
-- Should identifiable support records and reporting data be stored separately from the beginning?
+- Which permission checks belong in shared helpers versus feature-specific services?
+- Should database-level policies be added now or deferred until the permission model stabilizes?
 ```

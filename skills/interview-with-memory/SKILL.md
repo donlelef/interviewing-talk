@@ -5,9 +5,9 @@ description: Interviews a founder or product owner one question at a time and tu
 
 # Interview With Memory
 
-Use this skill before planning or building software when the product is still ambiguous.
+Use this skill before planning or building software when the product, domain language, or technical direction is still ambiguous.
 
-The running example for this skill is an employee psychological support desk: a product where companies offer employees access to psychological support, appointments, therapists, possible case managers, aggregate reporting, consent flows, and privacy-sensitive workflows.
+The goal is to interview the user, resolve one design branch at a time, and turn settled answers into thin, durable repo memory.
 
 ## Core Behavior
 
@@ -20,7 +20,9 @@ Interview the user before implementing.
 - Wait for the user's answer before continuing.
 - Do not invent decisions the user did not make.
 - Make uncertainty explicit.
-- Treat privacy, sensitive data, consent, HR visibility, and urgent psychological risk as first-class concerns.
+- Challenge fuzzy language and ask for sharper terms when needed.
+- Discuss concrete scenarios when an answer is too abstract.
+- Cross-reference existing repo memory before creating new terms or decisions.
 
 ## Memory Files
 
@@ -39,11 +41,11 @@ Classify each answer before writing it down.
 
 | Answer Type | Write To | Examples |
 | --- | --- | --- |
-| Product decision | `product.md` | HR sees only aggregate metrics; employees can self-book first sessions |
-| Domain term | `glossary.md` | Employee, therapist, case manager, aggregate metric, urgent case |
-| Technical decision | `docs/adr/` | Enforce HR access boundaries server-side; separate identifiable data from reporting data |
-| Agent operating rule | `AGENTS.md` | Read product memory before coding; never expose individual clinical details to HR |
-| Open question | Relevant file | Whether a case manager exists; whether emergency escalation is in scope |
+| Product decision | `product.md` | User roles, value proposition, scope, functional behavior |
+| Domain term | `glossary.md` | Project-specific terms, preferred names, avoided synonyms |
+| Technical decision | `docs/adr/` | Hard-to-reverse architecture choices with trade-offs |
+| Agent operating rule | `AGENTS.md` | How future agents should read and respect repo memory |
+| Open question | Relevant file | Unresolved product, language, or technical uncertainty |
 
 Keep boundaries strict:
 
@@ -78,10 +80,10 @@ Memory boundaries:
 
 Domain sensitivity:
 
-- Treat psychological support data as sensitive.
-- Do not assume HR can see individual employee details.
-- Prefer aggregate reporting unless the product owner explicitly decides otherwise.
-- Escalation, crisis, or urgent-risk behavior must be clarified before implementation.
+- Treat sensitive domain data as sensitive.
+- Do not add product roles, workflows, or technical constraints unless the product owner explicitly decides them.
+- If a request conflicts with documented memory, stop and ask which direction should win.
+- When the domain has compliance, safety, privacy, or trust implications, clarify them before implementation.
 ```
 
 Keep `AGENTS.md` concise. Its job is to point agents to the right memory files and define operating rules.
@@ -111,21 +113,21 @@ Use this loop:
 9. Apply the update only after confirmation.
 10. Continue with the next ambiguity.
 
-## First Question For This Domain
+## First Question
 
-If no stronger starting point exists, begin here:
+If no stronger starting point exists, begin with the highest-impact ambiguity:
 
 ```text
-Before we design anything else, what should the company or HR admin be allowed to see about employee use of the psychological support desk?
+Before we design anything else, what is the most important decision this repo memory should clarify?
 
 Options:
 
-1. Operational status only: eligibility, booking status, and usage counts, but no individual wellbeing or session details.
-2. Aggregate reporting only: trends across groups when the group is large enough, with no individual-level visibility.
-3. Limited individual workflow visibility: HR can see that support is active for an employee, but not why or what is discussed.
-4. Broad HR visibility: HR can see individual reasons, notes, or outcomes.
+1. Product scope: who the product serves, what it does, and what is out of scope.
+2. Domain language: what terms the team should use, and which terms are ambiguous or misleading.
+3. Technical direction: a hard-to-reverse implementation or architecture choice.
+4. Agent operating rules: how future coding agents should read, preserve, and update repo memory.
 
-My preference is option 2, with option 1 for operational workflows. It protects employee trust while still giving the company enough information to understand adoption. Option 4 is high-risk and should be avoided unless there is a very specific legal and product reason.
+My preference is to start with product scope unless the user already named a specific technical decision. Product scope usually determines which language and architecture decisions matter.
 
-Which option matches your intended product?
+Which branch should we resolve first?
 ```
