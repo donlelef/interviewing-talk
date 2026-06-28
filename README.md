@@ -1,34 +1,37 @@
 # AI Agents as interviewers: a new way of building specs
 
-This repository is a small, audience-facing demo kit for the talk **"AI Agents as interviewers: a new way of building specs."**
+Coding agents are getting very good at writing code. But in many projects, we invite them into the work only after the most important thinking has already gone wrong. Or only lies in our heads.
 
-It is not a production app and it is not a starter template. It is a practical way to explore a different use of coding agents: before asking them to build software, ask them to interview you.
+If the starting point is vague, the agent does not stop. It fills the gaps: who the product is for, what risks matter, which trade-offs are acceptable, and which words the team should use. The output can look impressive while quietly encoding the wrong assumptions.
 
-## The Core Idea
+This is why faster code generation is not always the real win. Andrew Murphy makes this point well in ["If you thought the speed of writing code was your problem - you have bigger problems"](https://andrewmurphy.io/blog/if-you-thought-the-speed-of-writing-code-was-your-problem-you-have-bigger-problems): if we do not know what to build, moving faster mostly means guessing faster.
 
-Coding agents are useful at writing code, but they are often asked to start too late in the thinking process. When a repo begins with vague instructions, the agent has to fill gaps with assumptions: who the product is for, what risks matter, which trade-offs are acceptable, and what language the team should use.
+It also connects to [GitHub Spec Kit](https://github.com/github/spec-kit), which puts specs at the center of AI-assisted software development. Spec Kit shows how structured specs can drive planning and implementation. This talk asks the step before that: how do we write better specs in the first place?
 
-The result can look productive while quietly encoding the wrong product.
+The answer explored here is simple: before asking the agent to build, ask it to interview. The product engieers building the product know the answers. They should only be asked the right questions.
 
-This repo argues for a different workflow:
-
-> The value is not asking AI to write code faster.
-> The value is using a coding agent to clarify the product, make decisions explicit, and build reusable project memory.
+> The value is not only asking AI to write code.
+> The value lies also in using coding agents to clarify the product, make decisions explicit, and build reusable project memory.
 
 ## Case Study
 
-The demo uses a fictional product: an app for companies that offer an **employee psychological support desk**.
+The demo uses a fictional product: an app to manage **employee psychological support desks**.
 
-This is intentionally more ambiguous than a todo app. Even with only two product roles, it raises questions that cut across product, compliance, UX, and architecture:
+The app has only two roles:
+
+- **Employees** request psychological support, book sessions, and manage the information they share.
+- **Admins** are therapists. They manage availability, appointments, and the support context needed to provide care.
+
+The sponsoring company is the buyer of the benefit, but it is not a product role unless the product owner explicitly decides to add company-facing reporting later.
+
+This is intentionally more ambiguous than a simple todo app. Even with these simplifications, the design raises many questions that cut across product, compliance, UX, and architecture:
 
 - What can therapist-admins see before, during, and after an employee session?
 - Should the sponsoring company receive any reporting, or is reporting out of scope?
 - How should employee consent be handled?
-- Who are the users: employee and admin, where admins are therapists?
-- What happens when an employee reports an urgent or high-risk situation?
-- Which decisions are product choices, and which are technical architecture choices?
+- Should the product ever add another role, or stay limited to employees and therapist-admins?
 
-The point is not to design a real mental health platform in this repo. The point is to show how much better a coding agent can work when it is allowed to ask structured questions before it writes code.
+The point is not to design a real mental health platform: we will write no code. The point is to show how much better a coding agent can work when it is allowed to ask structured questions before it writes code.
 
 ## What Is In This Repo
 
@@ -47,9 +50,11 @@ skills/
     ADR-FORMAT.md
 ```
 
-This repo deliberately does **not** include `product.md`, `glossary.md`, `AGENTS.md`, or ADR files. Those belong in the target repository where the interview is being run.
+This repo deliberately does **not** include `product.md`, `glossary.md`, `AGENTS.md`, or ADR files. Those are generated in the target repository where the interview is being run.
 
 ## The Four Levels
+
+The goal of this session is to learn how to be interviewed by coding agents. Each level changes the shape of the conversation: from vague questions, to structured alternatives, to motivated trade-offs, to persistent repo memory.
 
 ### Level 1: Generic Questions
 
@@ -61,9 +66,7 @@ Prompt: [`prompts/level-1-generic-questions.md`](prompts/level-1-generic-questio
 
 ### Level 2: One Question at a Time
 
-The second prompt makes the conversation manageable. The agent must ask one question at a time, propose 3-5 alternatives, explain the implications, and wait before continuing.
-
-This turns a vague requirements dump into a guided interview.
+The second prompt makes the conversation manageable. The agent must ask one question at a time, propose alternatives, and wait for answers before continuing.
 
 Prompt: [`prompts/level-2-one-question-alternatives.md`](prompts/level-2-one-question-alternatives.md)
 
@@ -81,7 +84,7 @@ The fourth level uses a portable Cursor skill:
 
 [`skills/interview-with-memory/SKILL.md`](skills/interview-with-memory/SKILL.md)
 
-The skill tells the agent how to interview a founder or product owner one question at a time, then turn answers into persistent repo memory:
+The skill tells the agent how to interview a product owner or engineer one question at a time, then turn answers into persistent repo memory:
 
 - `AGENTS.md` for how future agents should use the repo memory.
 - `product.md` for product-only information.
@@ -103,31 +106,15 @@ The skill also includes format guides:
 | 3 | Alternatives plus motivated recommendation | Adds trade-off analysis and product judgment | Decisions may still disappear after the chat ends |
 | 4 | Interview plus persistent memory | Turns answers into reusable repo context | Requires discipline about what belongs in each memory file |
 
-## How To Use This Repo
+## 5. Related Implementations of Level 4
 
-Use this repo as a self-guided exercise in a separate target repository.
+This repo's level 4 is not a unique trick. It is a small and improvised implementation of a pattern that is appearing in several agent workflows: interview the human, resolve ambiguity, and write durable context before implementation.
 
-1. Pick a repo where you want to explore a product idea.
-2. Copy one of the prompt files from `prompts/` into Cursor.
-3. Run the interview and answer as the product owner.
-4. Compare how the conversation changes from level 1 to level 3.
-5. For level 4, copy `skills/interview-with-memory/` into the target repo at `.cursor/skills/interview-with-memory/`.
-6. Ask Cursor to use the `interview-with-memory` skill before building.
-7. Let the agent create or update memory files in the target repo after confirming substantial changes.
+- [Matt Pocock's skills](https://github.com/mattpocock/skills) includes [`grill-with-docs`](https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-with-docs/SKILL.md), a repo-aware interview skill that sharpens domain language and records decisions in docs such as `CONTEXT.md` and ADRs.
+- [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) includes [`ce:brainstorm`](https://github.com/EveryInc/compound-engineering-plugin/blob/main/plugins/compound-engineering/skills/ce-brainstorm/SKILL.md), which uses collaborative dialogue to define what should be built and capture a requirements document before planning implementation.
+- [Superpowers](https://github.com/obra/superpowers) includes [`brainstorming`](https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md), a Socratic design workflow that turns rough ideas into an approved design document before moving to planning.
 
-The useful observation is not whether the agent writes code. The useful observation is whether the repo becomes clearer after the conversation.
-
-## How This Maps To The Talk
-
-The talk shows a progression:
-
-1. A coding agent executes vague instructions and produces plausible but fragile output.
-2. The same agent asks generic questions and improves slightly.
-3. A structured prompt makes the interview easier to answer.
-4. An opinionated prompt turns the agent into a sparring partner.
-5. A skill turns interview answers into durable project memory.
-
-The repository is designed so audience members can replay that progression after the talk, using their own product or the employee psychological support desk case study.
+In other words, Matt Pocock's `grill-with-docs`, Compound Engineering's `ce:brainstorm`, and Superpowers' `brainstorming` are all implementations of the same level 4 idea: the agent should help create durable, reusable project context before it writes code.
 
 ## References And Inspirations
 
@@ -135,6 +122,8 @@ The repository is designed so audience members can replay that progression after
 - [AGENTS.md](https://agents.md/)
 - [Compound Engineering plugin](https://github.com/EveryInc/compound-engineering-plugin)
 - [Compound Engineering README](https://github.com/EveryInc/compound-engineering-plugin/blob/main/plugins/compound-engineering/README.md)
-- [Matt Pocock / AI Hero - grill-with-docs](https://www.aihero.dev/grill-with-docs)
+- [Matt Pocock skills](https://github.com/mattpocock/skills)
+- [Andrew Murphy - If you thought the speed of writing code was your problem, you have bigger problems](https://andrewmurphy.io/blog/if-you-thought-the-speed-of-writing-code-was-your-problem-you-have-bigger-problems)
+- [GitHub Spec Kit](https://github.com/github/spec-kit)
 - [Superpowers](https://github.com/obra/superpowers)
 - [Superpowers brainstorming skill](https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md)
