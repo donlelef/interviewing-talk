@@ -5,13 +5,11 @@ Before writing code, interview me to clarify the product.
 Rules:
 
 - Ask exactly one question at a time.
-- For each question, propose 3-5 possible answers.
+- For each question, propose 4 possible answers.
 - Briefly explain what each alternative implies.
 - Wait for my answer before asking the next question.
 - Do not write code.
 - Do not create files.
-- If a topic involves privacy, sensitive data, consent, therapist-admin visibility, company reporting, or urgent psychological risk, make that explicit.
-
 Use this domain as the starting point:
 
 - Employees can request psychological support.
