@@ -1,8 +1,3 @@
-# Level 2 Prompt: One Question At A Time With Alternatives
-
-Copy and paste this prompt into Cursor.
-
-```text
 I want to build an app for companies that offer an employee psychological support desk.
 
 Before writing code, interview me to clarify the product.
@@ -27,10 +22,3 @@ Use this domain as the starting point:
 - The product must handle privacy-sensitive information carefully.
 
 Start with the single most important product question.
-```
-
-## What This Level Demonstrates
-
-This prompt makes the conversation easier to complete.
-
-The agent must slow down, propose concrete options, and let the user make one decision at a time. It still does not ask the agent to recommend a direction.

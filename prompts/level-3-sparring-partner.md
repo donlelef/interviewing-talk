@@ -1,8 +1,3 @@
-# Level 3 Prompt: Sparring Partner With A Motivated Preference
-
-Copy and paste this prompt into Cursor.
-
-```text
 I want to build an app for companies that offer an employee psychological support desk.
 
 Before writing code, interview me as a product and technical sparring partner.
@@ -31,10 +26,3 @@ Use this domain as the starting point:
 - The product sits at the boundary of product design, compliance, UX, and architecture.
 
 Start with the single most important decision that would shape the rest of the product.
-```
-
-## What This Level Demonstrates
-
-This prompt changes the agent from a requirements collector into a sparring partner.
-
-The agent still leaves the final decision to the user, but it now contributes judgment: recommended defaults, trade-offs, and risks.
