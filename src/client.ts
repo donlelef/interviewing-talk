@@ -15,8 +15,25 @@ function renderQuestion(question: Question) {
   const time = document.createElement("time");
   time.dateTime = question.askedAt;
   time.textContent = new Date(question.askedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  item.append(text, time);
+  item.append(renderUpvoteButton(question), text, time);
   return item;
+}
+
+function renderUpvoteButton(question: Question) {
+  const button = document.createElement("button");
+  button.className = "upvote";
+  button.textContent = `▲ ${question.upvotes}`;
+  button.setAttribute("aria-pressed", String(question.upvotedByMe));
+  button.setAttribute("aria-label", `Upvote, ${question.upvotes} so far`);
+  if (question.askedByMe) {
+    button.disabled = true;
+    button.title = "You cannot upvote your own question";
+  }
+  button.addEventListener("click", async () => {
+    await fetch(`/api/questions/${question.id}/upvote`, { method: question.upvotedByMe ? "DELETE" : "PUT" });
+    await refresh();
+  });
+  return button;
 }
 
 async function refresh() {
