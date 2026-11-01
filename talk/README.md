@@ -25,6 +25,24 @@ It sounds like twenty lines of code. It hides a dozen product decisions: who an 
 
 The app is deliberately small: [Bun](https://bun.sh), no dependencies, `bun:sqlite`, one page. Everyone understands the domain in five seconds, so the room can focus on the method.
 
+### Branches
+
+Each branch freezes the repository at one moment of the talk, so you can open any step without replaying the ones before it:
+
+```text
+main ──┬── demo/naive-upvote                      level 0 on main
+       └── demo/grilled ── demo/informed-upvote   level 4, then level 0 again
+```
+
+| Branch | What it represents | What is in it |
+| --- | --- | --- |
+| `main` | The starting point, before the task. | Ask a question and see it listed, newest first. `AGENTS.md` and the skills are there, but `docs/` is empty: the project has no memory of product decisions yet. |
+| `demo/naive-upvote` | [Level 0](#level-0-just-build): what an agent builds when nobody interviews it. | `main` plus the level 0 prompt, run with no questions asked. Upvoting works, but every decision is a silent guess: anyone can upvote the same question again and again, including their own, and nothing records why. |
+| `demo/grilled` | [Level 4](#level-4-grill-with-docs): the project memory an interview leaves behind. | `main` plus the `docs/` written by a `/grill-with-docs` session on upvoting: product, glossary, architecture, and one decision. No code changes. |
+| `demo/informed-upvote` | The payoff: the same prompt as level 0, now with memory. | `demo/grilled` plus the level 0 prompt run again. The agent follows the docs: one Upvote per Attendee, which they can take back, never on their own Question, most Upvoted first. |
+
+The prompt behind `demo/naive-upvote` and `demo/informed-upvote` is word for word the same. The only difference is the `docs/` on `demo/grilled`, so comparing those two branches shows what the interview was worth.
+
 ## The Method Works In Any Agent
 
 Nothing here depends on one tool. The demo runs in Claude Code; the same repository works in Codex, Cursor, and other agents:
