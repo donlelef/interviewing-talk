@@ -2,12 +2,7 @@
 
 ## Branches
 
-| Branch | State |
-| --- | --- |
-| `main` | Ask and list questions. `AGENTS.md` and skills, no `docs/`. The starting point on stage. |
-| `demo/naive-upvote` | Level 0: upvoting built straight from "Add upvoting to questions.", no interview. |
-| `demo/grilled` | Level 4: the `docs/` a `/grill-with-docs` session on upvoting writes, with the answers below. |
-| `demo/informed-upvote` | `demo/grilled` plus the same level 0 prompt, now following the docs. |
+What each branch represents is in the [README](README.md#branches). `demo/grilled` holds the docs from the [backup answers](#backup-answers) below.
 
 Every demo branch is a fallback: if a live step goes wrong, switch to its branch and carry on. Run `bun run reset` after every switch, because the branches use different database schemas.
 
