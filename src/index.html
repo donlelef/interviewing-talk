@@ -4,27 +4,59 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Q&amp;A Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <h1>Q&amp;A Board</h1>
-        <p>Ask the speaker anything.</p>
-      </header>
-
-      <form id="ask-form">
-        <label for="question-text">Your question</label>
-        <textarea id="question-text" name="text" rows="3" maxlength="280" required></textarea>
-        <div class="form-footer">
-          <span id="form-error" role="alert"></span>
-          <button type="submit">Ask</button>
+    <header class="top-bar">
+      <div class="top-bar-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">Q&amp;A</span>
+          <span class="brand-name">Q&amp;A Board</span>
         </div>
-      </form>
+        <span class="live-badge">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>Live<span class="live-detail">, updates every few seconds</span></span>
+        </span>
+      </div>
+    </header>
 
-      <section aria-labelledby="questions-heading">
-        <h2 id="questions-heading">Questions</h2>
-        <p id="empty-state">No questions yet. Be the first to ask.</p>
+    <main>
+      <section class="ask" aria-labelledby="ask-heading">
+        <h1 id="ask-heading">Ask the speaker anything.</h1>
+
+        <form id="ask-form" class="card">
+          <label for="question-text">Your question</label>
+          <textarea
+            id="question-text"
+            name="text"
+            rows="4"
+            maxlength="280"
+            placeholder="What would you like to know?"
+            aria-describedby="form-error"
+            required
+          ></textarea>
+          <p id="form-error" role="alert"></p>
+          <div class="form-footer">
+            <span id="character-count">0 / 280</span>
+            <button type="submit">Ask</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="board" aria-labelledby="questions-heading">
+        <div class="board-heading">
+          <h2 id="questions-heading">Questions</h2>
+          <span id="question-count"></span>
+        </div>
+        <div id="empty-state">
+          <p class="empty-title">No questions yet.</p>
+          <p>Be the first to ask.</p>
+        </div>
         <ol id="questions"></ol>
       </section>
     </main>
