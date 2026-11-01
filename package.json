@@ -1,0 +1,11 @@
+{
+  "name": "qa-board",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/server.ts",
+    "start": "bun src/server.ts",
+    "test": "bun test",
+    "reset": "rm -f qa-board.sqlite qa-board.sqlite-shm qa-board.sqlite-wal"
+  }
+}

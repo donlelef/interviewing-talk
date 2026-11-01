@@ -1,0 +1,3 @@
+node_modules/
+qa-board.sqlite*
+.DS_Store
