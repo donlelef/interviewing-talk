@@ -50,6 +50,7 @@ Nothing here depends on one tool. The demo runs in Claude Code; the same reposit
 - [`AGENTS.md`](../AGENTS.md) holds the rules and says what each document is for. [`CLAUDE.md`](../CLAUDE.md) only imports it.
 - The skills follow the [Agent Skills](https://agentskills.io) `SKILL.md` format and live in [`.agents/skills/`](../.agents/skills/). Claude Code reads them through symlinks in `.claude/skills/`; Codex reads `agents/openai.yaml` beside each skill.
 - Levels 0 to 3 are plain prompts you can paste anywhere.
+- Every skill is invoked only by name (`disable-model-invocation` for Claude Code, `allow_implicit_invocation: false` for Codex), so an interview prompt at levels 1 to 3 never pulls in `grilling` and jumps ahead to level 4.
 
 Claude Code adds a few conveniences on stage, such as rendering a multiple-choice question as clickable options, but the method does not need them.
 
