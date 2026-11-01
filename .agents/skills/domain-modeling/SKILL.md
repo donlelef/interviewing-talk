@@ -1,6 +1,7 @@
 ---
 name: domain-modeling
 description: Build and sharpen this project's domain model, product description, UI/UX design principles, architecture reference, and decision log. Use when discussing codebase terminology or product scope, writing or editing docs/GLOSSARY.md, docs/PRODUCT.md, docs/DESIGN.md (UI/UX), or docs/ARCHITECTURE.md, or recording or editing a technical or product decision in docs/decisions/.
+disable-model-invocation: true
 ---
 
 # Domain Modeling
