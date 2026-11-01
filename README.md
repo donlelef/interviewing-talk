@@ -9,7 +9,8 @@ building specs**. The talk itself, its prompts, and the demo script are in
 
 ## Run
 
-Requires [Bun](https://bun.sh) 1.3 or later. There is nothing to install.
+Requires the latest [Bun](https://bun.sh) (tested with 1.4.4); run
+`bun upgrade` first. There is nothing else to install.
 
 ```bash
 bun run dev
