@@ -23,6 +23,13 @@ export function startServer(store: QuestionStore, port: number) {
           }
         },
       },
+      "/api/questions/:id/upvote": {
+        POST: (req) => {
+          const question = store.upvote(Number(req.params.id));
+          if (!question) return Response.json({ error: "Question not found." }, { status: 404 });
+          return Response.json(question);
+        },
+      },
     },
   });
 }

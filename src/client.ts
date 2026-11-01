@@ -15,7 +15,14 @@ function renderQuestion(question: Question) {
   const time = document.createElement("time");
   time.dateTime = question.askedAt;
   time.textContent = new Date(question.askedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  item.append(text, time);
+  const upvote = document.createElement("button");
+  upvote.className = "upvote";
+  upvote.textContent = `▲ ${question.votes}`;
+  upvote.addEventListener("click", async () => {
+    await fetch(`/api/questions/${question.id}/upvote`, { method: "POST" });
+    await refresh();
+  });
+  item.append(upvote, text, time);
   return item;
 }
 

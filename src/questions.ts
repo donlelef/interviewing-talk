@@ -6,6 +6,7 @@ export type Question = {
   id: number;
   text: string;
   askedAt: string;
+  votes: number;
 };
 
 export type QuestionStore = ReturnType<typeof openQuestionStore>;
@@ -18,15 +19,19 @@ export function openQuestionStore(path = ":memory:") {
     CREATE TABLE IF NOT EXISTS questions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       text TEXT NOT NULL,
-      asked_at TEXT NOT NULL
+      asked_at TEXT NOT NULL,
+      votes INTEGER NOT NULL DEFAULT 0
     )
   `);
 
   const insert = db.query<Question, { text: string; askedAt: string }>(
-    "INSERT INTO questions (text, asked_at) VALUES ($text, $askedAt) RETURNING id, text, asked_at AS askedAt",
+    "INSERT INTO questions (text, asked_at) VALUES ($text, $askedAt) RETURNING id, text, asked_at AS askedAt, votes",
   );
   const selectAll = db.query<Question, []>(
-    "SELECT id, text, asked_at AS askedAt FROM questions ORDER BY id DESC",
+    "SELECT id, text, asked_at AS askedAt, votes FROM questions ORDER BY votes DESC, id DESC",
+  );
+  const incrementVotes = db.query<Question, { id: number }>(
+    "UPDATE questions SET votes = votes + 1 WHERE id = $id RETURNING id, text, asked_at AS askedAt, votes",
   );
 
   return {
@@ -40,6 +45,9 @@ export function openQuestionStore(path = ":memory:") {
     },
     list(): Question[] {
       return selectAll.all();
+    },
+    upvote(id: number): Question | null {
+      return incrementVotes.get({ id });
     },
   };
 }

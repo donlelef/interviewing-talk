@@ -48,3 +48,30 @@ describe("questions API", () => {
     expect(await response.text()).toContain("Q&amp;A Board");
   });
 });
+
+describe("upvoting", () => {
+  test("upvoting a question increments its votes", async () => {
+    const question = await ask("Is Bun production ready?").then((r) => r.json());
+
+    const response = await fetch(new URL(`/api/questions/${question.id}/upvote`, server.url), { method: "POST" });
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).votes).toBe(1);
+  });
+
+  test("questions are sorted by votes", async () => {
+    const popular = await ask("Older but popular?").then((r) => r.json());
+    await ask("Newer?");
+    await fetch(new URL(`/api/questions/${popular.id}/upvote`, server.url), { method: "POST" });
+
+    const questions = await fetch(new URL("/api/questions", server.url)).then((r) => r.json());
+
+    expect(questions[0].text).toBe("Older but popular?");
+  });
+
+  test("upvoting a missing question returns 404", async () => {
+    const response = await fetch(new URL("/api/questions/999/upvote", server.url), { method: "POST" });
+
+    expect(response.status).toBe(404);
+  });
+});
