@@ -16,5 +16,6 @@ Rules:
 - Look up facts in the code yourself; ask me only for decisions.
 - Ask the product questions first, then the technical ones.
 - Do not ask more than 15 questions.
+- Use your the question asking tool.
 
 Start with the single most important question and explore every branch of the design tree.
