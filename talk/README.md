@@ -47,7 +47,7 @@ The prompt behind `demo/naive-upvote` and `demo/informed-upvote` is word for wor
 
 Nothing here depends on one tool. The demo runs in Claude Code; the same repository works in Codex, Cursor, and other agents:
 
-- [`AGENTS.md`](../AGENTS.md) holds the rules and says what each document is for. [`CLAUDE.md`](../CLAUDE.md) only imports it.
+- [`AGENTS.md`](../AGENTS.md) holds only tooling and code style, so it gives a plain prompt no hints about how to work. [`CLAUDE.md`](../CLAUDE.md) only imports it.
 - The skills follow the [Agent Skills](https://agentskills.io) `SKILL.md` format and live in [`.agents/skills/`](../.agents/skills/). Claude Code reads them through symlinks in `.claude/skills/`; Codex reads `agents/openai.yaml` beside each skill.
 - Levels 0 to 3 are plain prompts you can paste anywhere.
 - Every skill is invoked only by name (`disable-model-invocation` for Claude Code, `allow_implicit_invocation: false` for Codex), so an interview prompt at levels 1 to 3 never pulls in `grilling` and jumps ahead to level 4.
@@ -89,7 +89,7 @@ Skill: [`/grill-with-docs`](../.agents/skills/grill-with-docs/SKILL.md), which c
 - [`grilling`](../.agents/skills/grilling/SKILL.md) maps the work as a **design tree** and asks it in **rounds**. Each round asks every question whose prerequisites are already settled, numbered and with a recommended answer. Dependent questions wait for the next round. This is the step after level 3: independent questions come together, so the interview is faster without guessing.
 - [`domain-modeling`](../.agents/skills/domain-modeling/SKILL.md) writes down what the interview settles the moment it is settled. It challenges terms against the glossary, sharpens fuzzy language, and stress-tests rules with concrete scenarios.
 
-The documents it creates, only when there is something to write, are defined once in [`AGENTS.md`](../AGENTS.md#documents):
+The documents it creates, only when there is something to write, are defined once in [`DOCUMENTS.md`](../.agents/skills/domain-modeling/DOCUMENTS.md):
 
 | Document | Holds |
 | --- | --- |

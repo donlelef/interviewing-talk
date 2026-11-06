@@ -1,6 +1,6 @@
 # GLOSSARY.md Format
 
-What `docs/GLOSSARY.md` is for is in `AGENTS.md`, _Documents_; this file defines its content.
+What `docs/GLOSSARY.md` is for is in [DOCUMENTS.md](./DOCUMENTS.md); this file defines its content.
 
 ## Structure
 

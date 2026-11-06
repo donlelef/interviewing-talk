@@ -1,6 +1,6 @@
 # ARCHITECTURE.md Format
 
-What `docs/ARCHITECTURE.md` is for is in `AGENTS.md`, _Documents_; this file defines its content.
+What `docs/ARCHITECTURE.md` is for is in [DOCUMENTS.md](./DOCUMENTS.md); this file defines its content.
 
 Every entry is either part of the system's structure or a principle that holds throughout the code. How one module, flow, or feature works is a detail: it belongs in the code that implements it, told by its names and types, not here. Before adding an entry, check that it would still be true and useful after that module is rewritten; if it would not, it is a detail and stays out.
 

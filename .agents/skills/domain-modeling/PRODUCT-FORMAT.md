@@ -1,6 +1,6 @@
 # PRODUCT.md Format
 
-What `docs/PRODUCT.md` is for is in `AGENTS.md`, _Documents_; this file defines its content.
+What `docs/PRODUCT.md` is for is in [DOCUMENTS.md](./DOCUMENTS.md); this file defines its content.
 
 ## Template
 
@@ -31,7 +31,7 @@ What `docs/PRODUCT.md` is for is in `AGENTS.md`, _Documents_; this file defines 
 ## Rules
 
 - **State capabilities, not mechanics.** "The Speaker can mark a Question as answered" not "answering sets an `answered_at` timestamp."
-- **Link, don't restate.** Terms, interface principles, architecture, and the why behind a decision each live in their own document; link to them, as `AGENTS.md`, _One fact, one place_, requires.
+- **Link, don't restate.** Terms, interface principles, architecture, and the why behind a decision each live in their own document; link to them, as [DOCUMENTS.md](./DOCUMENTS.md), _One fact, one place_, requires.
 - **Out-of-scope entries earn their place.** Only list an absence a reasonable reader would expect and ask "why isn't this here?", not an exhaustive list of everything the product isn't.
 - **Keep it a single pass.** If a section grows past what a PM reads once, it belongs in a linked doc instead, with only a pointer left here.
 

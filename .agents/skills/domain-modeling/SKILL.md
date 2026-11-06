@@ -10,7 +10,7 @@ Actively build and sharpen the project's living documentation as you design: the
 
 ## The docs
 
-What each document is for, and which one a fact belongs in, is in `AGENTS.md`, _Documents_; read it first. This skill covers `docs/GLOSSARY.md`, `docs/PRODUCT.md`, `docs/DESIGN.md`, `docs/ARCHITECTURE.md` and `docs/decisions/`, in these formats: [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md), [PRODUCT-FORMAT.md](./PRODUCT-FORMAT.md), [DESIGN-FORMAT.md](./DESIGN-FORMAT.md), [ARCHITECTURE-FORMAT.md](./ARCHITECTURE-FORMAT.md), [DECISION-FORMAT.md](./DECISION-FORMAT.md).
+What each document is for, and which one a fact belongs in, is in [DOCUMENTS.md](./DOCUMENTS.md); read it first. This skill covers `docs/GLOSSARY.md`, `docs/PRODUCT.md`, `docs/DESIGN.md`, `docs/ARCHITECTURE.md` and `docs/decisions/`, in these formats: [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md), [PRODUCT-FORMAT.md](./PRODUCT-FORMAT.md), [DESIGN-FORMAT.md](./DESIGN-FORMAT.md), [ARCHITECTURE-FORMAT.md](./ARCHITECTURE-FORMAT.md), [DECISION-FORMAT.md](./DECISION-FORMAT.md).
 
 Create files lazily: only when you have something to write, not upfront.
 
@@ -34,7 +34,7 @@ When the user states how something works, check whether the code agrees, and whe
 
 ### Update the docs inline
 
-When a term, a product rule, a design principle, or an architectural principle is resolved, update the document that owns it, per `AGENTS.md`, right there. Don't batch these up: capture them as they happen.
+When a term, a product rule, a design principle, or an architectural principle is resolved, update the document that owns it, per [DOCUMENTS.md](./DOCUMENTS.md), right there. Don't batch these up: capture them as they happen.
 
 ### Offer decision records sparingly
 
