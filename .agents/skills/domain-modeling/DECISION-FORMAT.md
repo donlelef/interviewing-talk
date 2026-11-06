@@ -1,6 +1,6 @@
 # Decision Format
 
-What `docs/decisions/` is for is in `AGENTS.md`, _Documents_; this file defines its content. Decisions use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc. The same log holds **technical** and **product** decisions: don't split them into separate directories.
+What `docs/decisions/` is for is in [DOCUMENTS.md](./DOCUMENTS.md); this file defines its content. Decisions use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc. The same log holds **technical** and **product** decisions: don't split them into separate directories.
 
 UI/UX choices are never recorded here: their principle goes in `docs/DESIGN.md`.
 
@@ -68,4 +68,4 @@ If a decision is easy to reverse, skip it: you'll just reverse it. If it's not s
 
 ## After recording
 
-If the decision settles something that's now the current state, link it from the document that owns that state, as `AGENTS.md`, _One fact, one place_, describes.
+If the decision settles something that's now the current state, link it from the document that owns that state, as [DOCUMENTS.md](./DOCUMENTS.md), _One fact, one place_, describes.

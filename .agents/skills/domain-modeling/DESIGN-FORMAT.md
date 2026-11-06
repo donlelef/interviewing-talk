@@ -1,6 +1,6 @@
 # DESIGN.md Format
 
-What `docs/DESIGN.md` is for is in `AGENTS.md`, _Documents_; this file defines its content.
+What `docs/DESIGN.md` is for is in [DOCUMENTS.md](./DOCUMENTS.md); this file defines its content.
 
 Every entry is a general principle that holds throughout the app, on every screen and for every feature. A rule that only makes sense for one screen, component, or feature is a detail: it belongs in the code that implements it, not here. Before adding an entry, check that it would still guide a screen nobody has designed yet; if it would not, generalise it or leave it out.
 
